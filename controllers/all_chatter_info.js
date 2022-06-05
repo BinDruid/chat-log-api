@@ -10,20 +10,21 @@ module.exports = async (req, res) => {
 
     // const user_result = await Chat_DB.find({}).select("userName -_id");
     // const uniqueUsers = (getUniqueItemsBy(user_result, "userName")).length;
-    const date_start_result = await Chat_DB.find({})
-      .select("chatDate -_id")
-      .sort({ chatDate: "asc" })
-      .limit(1);
-    const date_end_result = await Chat_DB.find({})
-      .select("chatDate -_id")
-      .sort({ chatDate: "desc" })
-      .limit(1);
+    const boundary_messages = await Chat_DB.aggregate([
+      {
+        $group: {
+          _id: null,
+          first: { $first: "$$ROOT" },
+          last: { $last: "$$ROOT" },
+        },
+      },
+    ]);
     return res.status(200).json({
       totall_chatters: uniqueUsers,
       totall_subs: uniqueSubs,
       totall_mods: uniqueMods,
-      startDate: date_start_result[0].chatDate,
-      endDate: date_end_result[0].chatDate,
+      startDate: boundary_messages[0].first.chatDate,
+      endDate: boundary_messages[0].last.chatDate,
     });
   } catch (e) {
     res.status(400).json({ errorMessage: e.message });
