@@ -1,0 +1,13 @@
+GET http://localhost:4000/api/v1/chatters
+
+###
+
+GET http://localhost:4000/api/v1/messages
+
+###
+
+GET http://localhost:4000/api/v1/chatters/elder_druid
+
+###
+
+GET http://localhost:4000/api/v1/chatters/Elder_Druid?limit=10
