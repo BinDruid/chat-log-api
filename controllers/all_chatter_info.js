@@ -2,14 +2,29 @@ const Chat_DB = require("../models/chat_message");
 
 module.exports = async (req, res) => {
   try {
-    const uniqueUsers = (await Chat_DB.distinct("userID")).length;
-    const subs_query = Chat_DB.find({ subscriber: true });
-    const uniqueSubs = (await Chat_DB.distinct("userID", subs_query)).length;
-    const mods_query = Chat_DB.find({ moderator: true });
-    const uniqueMods = (await Chat_DB.distinct("userID", mods_query)).length;
-
-    // const user_result = await Chat_DB.find({}).select("userName -_id");
-    // const uniqueUsers = (getUniqueItemsBy(user_result, "userName")).length;
+    // const uniqueUsers = (await Chat_DB.distinct("userID")).length;
+    const uniqueUsers = await Chat_DB.aggregate([
+      {
+        $group: {
+          _id: "distint",
+          distinctValues: {
+            $addToSet: "$userName",
+          },
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          numDistinct: {
+            $size: "$distinctValues",
+          },
+        },
+      },
+    ]);
+    const uniqueSubs = (await Chat_DB.distinct("userID", { subscriber: true }))
+      .length;
+    const uniqueMods = (await Chat_DB.distinct("userID", { moderator: true }))
+      .length;
     const boundary_messages = await Chat_DB.aggregate([
       {
         $group: {
@@ -20,7 +35,7 @@ module.exports = async (req, res) => {
       },
     ]);
     return res.status(200).json({
-      totall_chatters: uniqueUsers,
+      totall_chatters: uniqueUsers[0].numDistinct,
       totall_subs: uniqueSubs,
       totall_mods: uniqueMods,
       startDate: boundary_messages[0].first.chatDate,
