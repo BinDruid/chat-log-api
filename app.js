@@ -2,8 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const chatter_route = require("./routes/chatter_route");
-const message_route = require("./routes/message_route");
+const routers = require("./routes");
 
 const app = express();
 
@@ -23,8 +22,9 @@ app.listen(port, () => {
   );
 });
 
-app.use("/api/v1/chatters", chatter_route);
-app.use("/api/v1/messages", message_route);
+app.use("/api/v1/chatters", routers.chatter_route);
+app.use("/api/v1/messages", routers.message_route);
+app.use("/api/v1/test", routers.test_route);
 
 app.use((req, res) =>
   res.status(400).send({ message: "Invalid URL, Check documantition." })

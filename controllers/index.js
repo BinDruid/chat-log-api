@@ -1,2 +1,3 @@
-exports.all_chatter_info = require("./all_chatter_info.js");
-exports.chatter_info = require("./chatter_info.js");
+exports.get_chatters = require("./get_chatters.js");
+exports.get_chatter = require("./get_chatter.js");
+exports.get_test = require("./get_test.js");

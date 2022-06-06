@@ -18,6 +18,6 @@ module.exports = async (req, res) => {
       last_message: boundary_messages[0].last.chatDate,
     });
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    res.status(500).json({ message: e.message });
   }
 };

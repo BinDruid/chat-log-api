@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const controllers = require("../controllers");
-router.get("/", controllers.all_chatter_info);
-router.get("/:name", controllers.chatter_info);
+router.get("/", controllers.get_chatters);
+router.get("/:name", controllers.get_chatter);
 
 module.exports = router;

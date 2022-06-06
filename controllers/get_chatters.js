@@ -42,10 +42,10 @@ module.exports = async (req, res) => {
       endDate: boundary_messages[0].last.chatDate,
     });
   } catch (e) {
-    res.status(400).json({ errorMessage: e.message });
+    res.status(500).json({ errorMessage: e.message });
   }
 };
 
-const getUniqueItemsBy = (arr, key) => {
-  return [...new Map(arr.map((item) => [item[key], item])).values()];
-};
+// const getUniqueItemsBy = (arr, key) => {
+//   return [...new Map(arr.map((item) => [item[key], item])).values()];
+// };
