@@ -1,5 +1,5 @@
-GET http://localhost:4000/api/v1/test
-
+###
+GET http://localhost:4000/api/v1/test?date=5/18/2022
 ###
 
 GET http://localhost:4000/api/v1/chatters
@@ -14,5 +14,4 @@ GET http://localhost:4000/api/v1/messages?date=5/18/2022
 GET http://localhost:4000/api/v1/chatters/elder_druid
 
 ###
-
 GET http://localhost:4000/api/v1/chatters/Elder_Druid?limit=5

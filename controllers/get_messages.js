@@ -28,8 +28,8 @@ module.exports = async (req, res) => {
     result.sub_messages_count = await Chat_DB.find(query).countDocuments();
     return res.status(200).json(result);
   } catch (error) {
-    if (error instanceof UserError) {
+    if (error instanceof UserError)
       res.status(400).json({ [error.name]: error.message });
-    } else res.status(500).json({ [error.name]: error.message });
+    else res.status(500).json({ [error.name]: error.message });
   }
 };
