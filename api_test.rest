@@ -1,7 +1,10 @@
 ###
-GET http://localhost:4000/api/v1/test?date=5/18/2022
+GET http://localhost:4000/api/v1/test/test1?date=5/18/2022
 ###
 
+GET http://localhost:4000/api/v1/test/test2?user=elder_druid&date=6/5/2022
+
+###
 GET http://localhost:4000/api/v1/chatters
 
 ### GET all messages stats
