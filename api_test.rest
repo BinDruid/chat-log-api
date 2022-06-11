@@ -1,20 +1,7 @@
-###
-GET http://localhost:4000/api/v1/test/test1?date=5/18/2022
-###
-
-GET http://localhost:4000/api/v1/test/test2?user=elder_druid&date=6/5/2022
+GET http://localhost:4000/api/v1/stats?date=5/30/2022
 
 ###
-GET http://localhost:4000/api/v1/chatters
-
-### GET all messages stats
-GET http://localhost:4000/api/v1/messages
-
-### GET messages stats for a specific date
 GET http://localhost:4000/api/v1/messages?date=5/18/2022
 ###
 
-GET http://localhost:4000/api/v1/chatters/elder_druid
-
-###
-GET http://localhost:4000/api/v1/chatters/Elder_Druid?limit=5
+GET http://localhost:4000/api/v1/test?date=5/18/2022

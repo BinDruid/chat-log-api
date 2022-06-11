@@ -5,7 +5,7 @@ const UserError = require("../util/errorTypes");
 
 module.exports = async (req, res) => {
   try {
-    for (const queryField of Object.keys(req.query)) {
+    for (const queryField in req.query) {
       const dbField = mapName(queryField);
       await checkExist(dbField, req.query[queryField]);
     }

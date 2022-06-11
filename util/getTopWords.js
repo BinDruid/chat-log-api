@@ -1,20 +1,13 @@
 module.exports = (messages, minWord = 5) => {
-  let setOfWords = new Set();
-  for (const msg of messages) {
-    for (const word of msg.message.split(" ")) {
-      setOfWords.add(word);
-    }
-  }
-  let topWords = {};
-  for (const uniqueWord of setOfWords) {
-    topWords[uniqueWord] = 0;
-    for (const msg of messages) {
-      for (const word of msg.message.split(" "))
-        if (word == uniqueWord) topWords[uniqueWord]++;
-    }
-    if (topWords[uniqueWord] < minWord) delete topWords[uniqueWord];
-  }
-  return getTopTen(topWords);
+  let bagOfWords = {};
+  for (const singleMessage of messages)
+    for (const word of singleMessage.message.split(" "))
+      if (isNaN(word) && word.length > 1)
+        if (bagOfWords[word]) bagOfWords[word]++;
+        else bagOfWords[word] = 1;
+  for (const word in bagOfWords)
+    if (bagOfWords[word] < minWord) delete bagOfWords[word];
+  return getTopTen(bagOfWords);
 };
 
 const getTopTen = (topWords) => {

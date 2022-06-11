@@ -22,8 +22,8 @@ app.listen(port, () => {
   );
 });
 
-app.use("/api/v1/chatters", routers.chatter_route);
-app.use("/api/v1/messages", routers.message_route);
+app.use("/api/v1/stats", routers.stats_route);
+app.use("/api/v1/messages", routers.messages_route);
 app.use("/api/v1/test", routers.test_route);
 
 app.use((req, res) =>

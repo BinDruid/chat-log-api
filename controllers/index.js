@@ -1,4 +1,3 @@
-exports.get_chatters = require("./get_chatters.js");
-exports.get_chatter = require("./get_chatter.js");
-exports.get_test = require("./get_test_1.js");
-exports.get_test = require("./get_test_2.js");
+exports.get_messages = require("./get_messages");
+exports.get_stats = require("./get_stats");
+exports.get_test = require("./get_test.js");
