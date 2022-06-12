@@ -5,3 +5,10 @@ GET http://localhost:4000/api/v1/messages?date=5/18/2022
 ###
 
 GET http://localhost:4000/api/v1/test?date=5/18/2022
+Content-Type: application/json
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.ZHJ1aWQ._-CmoAMVp8ltPDyG3PTis78zvV4oULynBGWPIl0sNSg
+###
+
+POST http://localhost:4000/api/v1/token
+Content-Type: application/json
+client_id: druid
