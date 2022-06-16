@@ -22,11 +22,11 @@ app.listen(port, () => {
   );
 });
 
+app.use("/api/v1/user", routers.user_route);
 app.use("/api/v1/stats", routers.stats_route);
 app.use("/api/v1/messages", routers.messages_route);
 app.use("/api/v1/test", routers.test_route);
-app.use("/api/v1/token", routers.token_route);
 
 app.use((req, res) =>
-  res.status(400).send({ message: "Invalid URL, Check documantition." })
+  res.status(400).send({ message: "Invalid URL, Check documentation." })
 );

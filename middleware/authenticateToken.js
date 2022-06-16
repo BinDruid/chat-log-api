@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const token = authHeader && authHeader.split(" ")[1];
   if (!token) return res.status(401);
   try {
-    const client = jwt.verify(token, process.env.ACCESS_TOKEN);
+    const client = jwt.verify(token, process.env.SECRET_TOKEN);
     req.client = client;
     next();
   } catch (e) {

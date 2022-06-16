@@ -1,14 +1,25 @@
+POST http://localhost:4000/api/v1/user
+Content-Type: application/json
+username: druid
+password: 1234
+
+###
+POST http://localhost:4000/api/v1/user/token
+Content-Type: application/json
+username: druid
+password: 1234
+###
+
 GET http://localhost:4000/api/v1/stats?date=5/30/2022
+Content-Type: application/json
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
 
 ###
 GET http://localhost:4000/api/v1/messages?date=5/18/2022
-###
+Content-Type: application/json
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
 
+###
 GET http://localhost:4000/api/v1/test?date=5/18/2022
 Content-Type: application/json
-auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.ZHJ1aWQ._-CmoAMVp8ltPDyG3PTis78zvV4oULynBGWPIl0sNSg
-###
-
-POST http://localhost:4000/api/v1/token
-Content-Type: application/json
-client_id: druid
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
