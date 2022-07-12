@@ -13,8 +13,8 @@ module.exports = class QueryHandler {
 
   empty() {
     // return !!Object.keys(this.userQuery).length;
-    for (let queryField in this.userQuery) return true;
-    return false;
+    for (let queryField in this.userQuery) return false;
+    return true;
   }
 
   checkValid = async (allowedParams, generalQuery = flase) => {
@@ -43,7 +43,7 @@ module.exports = class QueryHandler {
 
   fetchMessages = async () => {
     // const slelectFields = Object.keys(this.userQuery).includes("user")
-    //   ? "message -_id"
+    //   ? "message -_id";
     //   : "userName message -_id";
     const slelectFields = "message -_id";
     const messages = await Chat_DB.find(this.dbQuery).select(slelectFields);
