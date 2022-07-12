@@ -43,8 +43,8 @@ module.exports = class QueryHandler {
 
   fetchMessages = async () => {
     // const slelectFields = Object.keys(this.userQuery).includes("user")
-    //   ? "message -_id";
-    //   : "userName message -_id";
+    //   ? "message -_id"
+    //   : "userName message -_id"
     const slelectFields = "message -_id";
     const messages = await Chat_DB.find(this.dbQuery).select(slelectFields);
     const occurrence = 10;
