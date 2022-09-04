@@ -2,10 +2,10 @@ const UserError = require("../util/errorTypes");
 const QueryHandler = require("../util/QueryHandler");
 
 module.exports = async (req, res) => {
-  const query = new QueryHandler(req.query, req.baseUrl);
+  const query = new QueryHandler(req.query, req.originalUrl);
   try {
     await query.checkValid(["date", "user"], (general = true));
-    await query.fetchMessages();
+    await query.fetchTopWords();
     return res.status(200).json(query.getResult());
   } catch (error) {
     if (error instanceof UserError)

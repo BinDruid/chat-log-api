@@ -2,7 +2,7 @@ const UserError = require("../util/errorTypes");
 const QueryHandler = require("../util/QueryHandler");
 
 module.exports = async (req, res) => {
-  const query = new QueryHandler(req.query);
+  const query = new QueryHandler(req.query, req.originalUrl);
   try {
     await query.checkValid(["date"], (general = true));
     await query.fetchStats();

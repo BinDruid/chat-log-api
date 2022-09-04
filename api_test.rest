@@ -1,25 +1,34 @@
-POST http://localhost:4000/api/v1/user
+@PORT = 4500
+@baseURL = http://localhost:{{PORT}}/api/v1
+
+### Register User
+POST {{baseURL}}/user
 Content-Type: application/json
 username: druid
 password: 1234
 
-###
-POST http://localhost:4000/api/v1/user/token
+### Get auth token
+POST {{baseURL}}/user/token
 Content-Type: application/json
 username: druid
 password: 1234
-###
 
-GET http://localhost:4000/api/v1/stats?date=5/30/2022
+### Consume stats endpoint
+GET {{baseURL}}/stats?date=5/30/2022
 Content-Type: application/json
-auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
 
-###
-GET http://localhost:4000/api/v1/messages?date=5/18/2022
+### Consume message endpoint
+GET {{baseURL}}/messages?date=5/18/2022&page=2400
 Content-Type: application/json
-auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
 
-###
-GET http://localhost:4000/api/v1/test?date=5/18/2022
+### Consume top words endpoint
+GET {{baseURL}}/topwords?date=5/18/2022
 Content-Type: application/json
-auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjJhYWRmNTQ1NThmNTU1ODE4NGE0MTE2.4RBQOyTlob8pCCtV3zODQ9RWYqE1kUfDxir2ibiEINM
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
+
+### Consume test endpoint 
+GET {{baseURL}}/test?date=5/18/2022
+Content-Type: application/json
+auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
