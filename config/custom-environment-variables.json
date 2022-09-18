@@ -1,0 +1,6 @@
+{
+  "port": "PORT",
+  "env": "NODE_ENV",
+  "mongo": "MONGO",
+  "secret": "SECRET"
+}

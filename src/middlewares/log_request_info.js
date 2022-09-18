@@ -1,14 +1,16 @@
+const logger = require("../../config/setup/logger");
+
 module.exports = (req, res, next) => {
   res.on("finish", () => {
-    const logger = {
+    const requestInfo = {
       Time: new Date().toLocaleTimeString(),
-      User: req.client ?? "anonymous",
+      User: req.user ?? "anonymous",
       Method: req.method,
-      URL: req.baseUrl + req.url,
+      URL: req.headers.host + req.baseUrl + req.url,
       Referer: req.headers.referer ?? "none",
       StatusCode: res.statusCode,
     };
-    console.log(logger);
+    logger.info(requestInfo);
   });
   next();
 };

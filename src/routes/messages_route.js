@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const get_messages = require("../controllers/get_messages.js");
-const authenticateToken = require("../middleware/authenticateToken");
+const authenticateToken = require("../middlewares/authenticateToken");
 
 router.use(authenticateToken);
 router.get("/", get_messages);

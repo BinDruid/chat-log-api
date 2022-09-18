@@ -1,5 +1,6 @@
-@PORT = 4500
+@PORT = 9000
 @baseURL = http://localhost:{{PORT}}/api/v1
+#@baseURL = https://twitch.abharya.ir/api/v1
 
 ### Register User
 POST {{baseURL}}/user
@@ -19,7 +20,7 @@ Content-Type: application/json
 auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
 
 ### Consume message endpoint
-GET {{baseURL}}/messages?date=5/18/2022&page=2400
+GET {{baseURL}}/messages?date=5/18/2022&page=2
 Content-Type: application/json
 auth-token: Bearer eyJhbGciOiJIUzI1NiJ9.NjMwNDE1NzE2YTM5OGU3NGM4Njc5MzIz.-nUcfLqL3T2KGhwtAhAiNN9sFKKB1a54wUAgmBsHkcI
 
